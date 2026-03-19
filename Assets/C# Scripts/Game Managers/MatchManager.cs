@@ -26,7 +26,7 @@ namespace Fire_Pixel.Networking
         public void MarkPlayerReady_ServerRPC()
         {
             playerReadyCount += 1;
-            if (playerReadyCount == GlobalGameData.MAX_PLAYERS)
+            if (true || playerReadyCount == GlobalGameData.MAX_PLAYERS)
             {
                 PostMatchStarted_OnServer?.Invoke();
             }

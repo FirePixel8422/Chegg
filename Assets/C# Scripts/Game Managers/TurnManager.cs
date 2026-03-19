@@ -1,8 +1,6 @@
-using Fire_Pixel.Utility;
 using System;
-using TMPro;
-using Unity.Netcode;
 using UnityEngine;
+using Unity.Netcode;
 
 
 namespace Fire_Pixel.Networking
@@ -16,10 +14,7 @@ namespace Fire_Pixel.Networking
         private void Awake() => Instance = this;
 
 
-        [SerializeField] private TextMeshProUGUI turnTimeLeftText;
-        [SerializeField] private Color turnTimerActiveColor, turnTimerLowColor;
-        private float turnTimeLeft;
-        private const float TIME_PER_TURN = 10;
+        [SerializeField] private GameObject endTurnButtonObj;
 
         private int clientOnTurnId = -1;
         public static int ClientOnTurnId => Instance.clientOnTurnId;
@@ -43,9 +38,7 @@ namespace Fire_Pixel.Networking
         }
         private void StartGame_OnServer()
         {
-            clientOnTurnId = EzRandom.Range(0, GlobalGameData.MAX_PLAYERS);
-
-            SwapToNextTurn_ClientRPC(-1, clientOnTurnId);
+            SwapToNextTurn_ClientRPC(-1, 0);
         }
 
         [ServerRpc(RequireOwnership = false, Delivery = RpcDelivery.Reliable)]
@@ -67,35 +60,13 @@ namespace Fire_Pixel.Networking
             // If it becomes or stays local clients turn, Invoke OnMyTurnStarted.
             if (IsMyTurn)
             {
-                turnTimeLeft = TIME_PER_TURN;
-                CallbackScheduler.RegisterUpdate(OnUpdateTimer);
-
+                endTurnButtonObj.SetActive(true);
                 TurnStarted?.Invoke();
             }
             // If its not local clients turn, check if they lost the turn and Invoke OnTurnEnded if so.
             else if (prevClientOnTurnId == LocalClientGameId)
             {
                 TurnEnded?.Invoke();
-            }
-        }
-        public void EndTurnTimer()
-        {
-            turnTimeLeftText.text = "-";
-            CallbackScheduler.UnRegisterUpdate(OnUpdateTimer);
-        }
-        private void OnUpdateTimer()
-        {
-            turnTimeLeft -= Time.deltaTime;
-
-            float timeLeftCeil = Mathf.CeilToInt(turnTimeLeft);
-
-            turnTimeLeftText.color = timeLeftCeil > 3 ? turnTimerActiveColor : turnTimerLowColor;
-            turnTimeLeftText.text = timeLeftCeil.ToString();
-
-            if (turnTimeLeft <= 0)
-            {
-                NextTurn_ServerRPC();
-                EndTurnTimer();
             }
         }
     }

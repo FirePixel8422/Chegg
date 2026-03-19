@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e9f1e394777414f8ae5390c27cc385, type: 3}
+  m_Name: New Unit
+  m_EditorClassIdentifier: Assembly-CSharp::BaseUnitTypeSO
+  Value:
+    rid: 902968874299818194
+  references:
+    version: 2
+    RefIds:
+    - rid: 902968874299818194
+      type: {class: UnitSimple, ns: , asm: Assembly-CSharp}
+      data:
+        Info:
+          Name: 
+          Description: 
+        Movement:
+          Direction:
+            x: 0
+            y: 0
+          MaxSteps: 0
+        ManaCost: 0
