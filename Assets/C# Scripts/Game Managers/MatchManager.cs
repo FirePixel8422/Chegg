@@ -7,43 +7,33 @@ namespace Fire_Pixel.Networking
 {
     public class MatchManager : SmartNetworkBehaviour
     {
-#pragma warning disable UDR0001
-        public static OneTimeAction PostMatchStarted_OnServer = new OneTimeAction();
-        public static OneTimeAction PostMatchStarted = new OneTimeAction();
-#pragma warning restore UDR0001
+        [SerializeField] private MatchSettings matchSettings;
+        [SerializeField] private string nextSceneName;
 
         private int playerReadyCount;
 
 
-        protected override void OnNetworkSystemsSetupPostStart()
+
+        protected override void OnNetworkSystemsSetup()
         {
-            TurnManager.TurnChanged += OnTurnChanged;
             MarkPlayerReady_ServerRPC();
         }
 
-        [ContextMenu("Ready")]
         [ServerRpc(RequireOwnership = false, Delivery = RpcDelivery.Reliable)]
         public void MarkPlayerReady_ServerRPC()
         {
             playerReadyCount += 1;
             if (true || playerReadyCount == GlobalGameData.MAX_PLAYERS)
             {
-                PostMatchStarted_OnServer?.Invoke();
+                OnMatchLoaded_RPC(matchSettings);
+                SceneManager.LoadSceneOnNetwork_OnServer(nextSceneName);
             }
         }
-        private void OnTurnChanged(int clientGameId)
-        {
-            TurnManager.TurnChanged -= OnTurnChanged;
-            PostMatchStarted.Invoke();
-        }
 
-        public override void OnDestroy()
+        [Rpc(SendTo.ClientsAndHost, Delivery = RpcDelivery.Reliable)]
+        private void OnMatchLoaded_RPC(MatchSettings matchSettings)
         {
-            base.OnDestroy();
-
-            TurnManager.TurnChanged -= OnTurnChanged;
-            PostMatchStarted_OnServer = new OneTimeAction();
-            PostMatchStarted = new OneTimeAction();
+            this.matchSettings = matchSettings;
         }
     }
 }

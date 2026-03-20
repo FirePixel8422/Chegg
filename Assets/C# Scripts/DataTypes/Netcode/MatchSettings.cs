@@ -10,7 +10,7 @@ namespace Fire_Pixel.Networking
         {
             return id switch
             {
-                0 => privateLobby ? 1 : 0,
+                0 => RecycleKilledUnits ? 1 : 0,
                 _ => -1,
             };
         }
@@ -19,7 +19,7 @@ namespace Fire_Pixel.Networking
             switch (id)
             {
                 case 0:
-                    privateLobby = value == 1;
+                    RecycleKilledUnits = value == 1;
                     break;
                 default:
 #if UNITY_EDITOR
@@ -30,12 +30,12 @@ namespace Fire_Pixel.Networking
         }
 
 
-        public bool privateLobby;
+        public bool RecycleKilledUnits;
 
 
         public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
         {
-            serializer.SerializeValue(ref privateLobby);
+            serializer.SerializeValue(ref RecycleKilledUnits);
         }
     }
 }

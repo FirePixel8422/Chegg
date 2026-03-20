@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5287381020941622744}
   - component: {fileID: 4552873996528808999}
   - component: {fileID: 1035625575518581294}
+  - component: {fileID: 7553968855404384336}
   m_Layer: 0
   m_Name: NET_Netcode Management
   m_TagString: Untagged
@@ -72,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7332ffd667763c4ab6a74ead269ca01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: FPX Main Scene
+  nextSceneName: Main Scene
   invisibleScreenCover: {fileID: 0}
   rejoinMenu: {fileID: 0}
   lobbySearchInterval: 3
@@ -110,4 +111,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee467f62092cc84ba26178c118f6e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NetworkTickEnabler
+  ShowTopMostFoldoutHeaderGroup: 1
+--- !u!114 &7553968855404384336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3088868075374821422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86559eca88a436f40909279113fe5b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Fire_Pixel.Networking.MatchManager
   ShowTopMostFoldoutHeaderGroup: 1

@@ -30,10 +30,7 @@ public class GridManager : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        MatchManager.PostMatchStarted_OnServer += () =>
-        {
-            GenerateGrid_RPC(gridSettings);
-        };
+        GenerateGrid_RPC(gridSettings);
     }
 
     [Rpc(SendTo.ClientsAndHost)]

@@ -28,7 +28,6 @@ namespace Fire_Pixel.Networking
 
 
         [Header("Scene to load when joining or creating a lobby\nLeave empty for no scene load")]
-        [SerializeField] private string nextSceneName = "Pre-MainGame";
         [SerializeField] private GameObject invisibleScreenCover;
         [SerializeField] private GameObject rejoinMenu;
 
@@ -204,11 +203,6 @@ namespace Fire_Pixel.Networking
 
                 NetworkManager.Singleton.StartHost();
 
-                if (instaLoadSceneOnHost)
-                {
-                    LoadNextScene();
-                }
-
                 return true;
             }
             catch (LobbyServiceException e)
@@ -219,18 +213,6 @@ namespace Fire_Pixel.Networking
 
                 return false;
             }
-        }
-
-        public void LoadNextScene()
-        {
-            if (string.IsNullOrEmpty(nextSceneName))
-            {
-                DebugLogger.LogError("Error scene name is invalid", string.IsNullOrEmpty(nextSceneName));
-                return;
-            }
-
-            // Load next scene through network, so all joining clients will also load it automatically
-            SceneManager.LoadSceneOnNetwork_OnServer(nextSceneName);
         }
 
 

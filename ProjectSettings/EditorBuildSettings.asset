@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 97273907b049273418e3cea2becd1853
   - enabled: 1
-    path: Assets/Scenes/Main Scene.unity
+    path: Assets/Scenes/FPX Main Scene.unity
     guid: b33bac7b43455e34ebf36927e36018c0
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

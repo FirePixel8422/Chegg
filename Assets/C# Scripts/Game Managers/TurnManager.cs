@@ -33,12 +33,8 @@ namespace Fire_Pixel.Networking
             base.OnNetworkSpawn();
             if (IsServer)
             {
-                MatchManager.PostMatchStarted_OnServer += StartGame_OnServer;
+                SwapToNextTurn_ClientRPC(-1, 0);
             }
-        }
-        private void StartGame_OnServer()
-        {
-            SwapToNextTurn_ClientRPC(-1, 0);
         }
 
         [ServerRpc(RequireOwnership = false, Delivery = RpcDelivery.Reliable)]

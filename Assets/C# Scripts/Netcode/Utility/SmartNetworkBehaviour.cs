@@ -10,7 +10,6 @@ namespace Fire_Pixel.Networking
     public abstract class SmartNetworkBehaviour : NetworkBehaviour
     {
         public bool IsNetworkSystemInitilized { get; private set; }
-        private bool isPostSpawnReady;
 
 
         #region Usefull quick acces to data
@@ -44,34 +43,15 @@ namespace Fire_Pixel.Networking
             {
                 IsNetworkSystemInitilized = true;
                 OnNetworkSystemsSetup();
-
-                if (isPostSpawnReady)
-                {
-                    OnNetworkSystemsSetupPostStart();
-                }
-                isPostSpawnReady = true;
             };
 
             CallbackScheduler.RegisterNetworkTick(OnNetworkTick);
-        }
-        private void Start()
-        {
-            if (isPostSpawnReady)
-            {
-                OnNetworkSystemsSetupPostStart();
-            }
-            isPostSpawnReady = true;
         }
 
         /// <summary>
         /// Called After all custom NetworkSystems have been setup through <see cref="ClientManager.PostInitialized"/>
         /// </summary>
         protected virtual void OnNetworkSystemsSetup() { }
-
-        /// <summary>
-        /// Called after OnNetworkSystemsSetup() and Start().
-        /// </summary>
-        protected virtual void OnNetworkSystemsSetupPostStart() { }
 
         /// <summary>
         /// Called before every network tick (before all scheduled RPCs are executed)

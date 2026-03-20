@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using Fire_Pixel.Networking;
-using Unity.Netcode;
 using UnityEngine.UI;
-
+using Unity.Mathematics;
+using System.Diagnostics;
 
 
 public class ResourceManager : MonoBehaviour
@@ -11,11 +11,13 @@ public class ResourceManager : MonoBehaviour
 
 
     [SerializeField] private Image manaBar;
-
-    [SerializeField] private int StartManaPerTurn = 1;
-    [SerializeField] private int MaxManaPerTurn;
+    [SerializeField] private NativeSampledAnimationCurve manaGainCurve = NativeSampledAnimationCurve.Default;
 
     public int CurrentMana { get; private set; }
+
+    private int cRoundNumber;
+    private const int MAX_MANA = 10;
+
 
     private void Awake()
     {
@@ -23,18 +25,18 @@ public class ResourceManager : MonoBehaviour
         TurnManager.TurnStarted += OnTurnStarted;
         TurnManager.TurnEnded += OnTurnEnded;
 
+        manaGainCurve.Bake();
+
         manaBar.fillAmount = 0;
     }
 
     private void OnTurnStarted()
     {
-        if (StartManaPerTurn != MaxManaPerTurn)
-        {
-            StartManaPerTurn += 1;
-        }
+        cRoundNumber += 1;
 
-        CurrentMana = StartManaPerTurn;
-        manaBar.fillAmount = (float)CurrentMana / MaxManaPerTurn;
+        CurrentMana = Mathf.CeilToInt(manaGainCurve.Evaluate(cRoundNumber));
+
+        manaBar.fillAmount = (float)CurrentMana / MAX_MANA;
     }
     private void OnTurnEnded()
     {
@@ -47,7 +49,7 @@ public class ResourceManager : MonoBehaviour
         if (amount > CurrentMana) return false;
 
         CurrentMana -= amount;
-        manaBar.fillAmount = (float)CurrentMana / MaxManaPerTurn;
+        manaBar.fillAmount = (float)CurrentMana / MAX_MANA;
 
         return true;
     }
@@ -56,5 +58,7 @@ public class ResourceManager : MonoBehaviour
     {
         TurnManager.TurnStarted -= OnTurnStarted;
         TurnManager.TurnEnded -= OnTurnEnded;
+
+        manaGainCurve.Dispose();
     }
 }

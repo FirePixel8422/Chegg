@@ -11,11 +11,7 @@ namespace Fire_Pixel.Networking
 
 
 
-        private void Awake()
-        {
-            MatchManager.PostMatchStarted += OnGameStarted;
-        }
-        private void OnGameStarted()
+        public override void OnNetworkSpawn()
         {
             string userName = ClientManager.LocalUserName;
 

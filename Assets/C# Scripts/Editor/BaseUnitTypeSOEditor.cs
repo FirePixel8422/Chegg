@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(BaseUnitTypeSO))]
+[CustomEditor(typeof(UnitTypeSO))]
 public sealed class BaseUnitTypeSOEditor : Editor
 {
     private Type[] cachedUnitTypes;
@@ -63,7 +63,7 @@ public sealed class BaseUnitTypeSOEditor : Editor
     private void OnTypeSelected(object typeObj)
     {
         Type type = (Type)typeObj;
-        BaseUnitTypeSO so = (BaseUnitTypeSO)target;
+        UnitTypeSO so = (UnitTypeSO)target;
 
         Undo.RecordObject(so, "Set UnitType");
 
