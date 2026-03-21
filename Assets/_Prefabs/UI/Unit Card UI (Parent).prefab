@@ -286,8 +286,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 2164260863
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -310,7 +310,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 18
-  m_fontStyle: 33
+  m_fontStyle: 35
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
@@ -359,6 +359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3031449708557962796}
   - component: {fileID: 5769241310026317412}
+  - component: {fileID: 2512389206283902223}
   m_Layer: 5
   m_Name: Unit Card UI (Parent)
   m_TagString: Untagged
@@ -401,9 +402,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a76b99b8b7d4a7d488c8d52f00e27269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitCardUIController
-  titleText: {fileID: 0}
-  descriptionText: {fileID: 0}
-  icon: {fileID: 0}
+  titleText: {fileID: 1262268044469773880}
+  descriptionText: {fileID: 4281813110979930255}
+  icon: {fileID: 6872451285450226100}
+--- !u!225 &2512389206283902223
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6513632730081086838}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8871936936586528664
 GameObject:
   m_ObjectHideFlags: 0

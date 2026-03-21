@@ -2,6 +2,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+[RequireComponent(typeof(CanvasGroup))]
 public class UnitCardUIHandler : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI titleText;
@@ -11,7 +13,7 @@ public class UnitCardUIHandler : MonoBehaviour
     private CanvasGroup canvasGroup;
 
 
-    private void Awake()
+    public void Init()
     {
         canvasGroup = GetComponent<CanvasGroup>();
     }
@@ -23,6 +25,8 @@ public class UnitCardUIHandler : MonoBehaviour
     public void UpdateCardUI(UnitInfo unitInfo)
     {
         titleText.text = unitInfo.Name;
+        titleText.color = unitInfo.Color;
+
         descriptionText.text = unitInfo.Description;
         icon.sprite = unitInfo.Icon;
     }

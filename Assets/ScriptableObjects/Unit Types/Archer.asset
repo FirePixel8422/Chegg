@@ -10,22 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7e9f1e394777414f8ae5390c27cc385, type: 3}
-  m_Name: New Unit
+  m_Name: Archer
   m_EditorClassIdentifier: Assembly-CSharp::BaseUnitTypeSO
   Value:
-    rid: 902968874299818194
+    rid: 6216775567652421734
   references:
     version: 2
     RefIds:
-    - rid: 902968874299818194
+    - rid: 6216775567652421734
       type: {class: UnitSimple, ns: , asm: Assembly-CSharp}
       data:
         Info:
-          Name: 
-          Description: 
-        Movement:
-          Direction:
-            x: 0
-            y: 0
-          MaxSteps: 0
-        ManaCost: 0
+          Name: Archer
+          Description: Simple Unit that jumps 2 tiles.
+          Icon: {fileID: 21300000, guid: 1336b5165dea73843ada14baa9ee19e9, type: 3}
+          Color: {r: 0.38431373, g: 0.5372549, b: 0.48235294, a: 1}
+        Movement: []
+        MovementDirections: []
+        ManaCost: 3

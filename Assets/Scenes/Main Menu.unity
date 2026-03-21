@@ -1837,6 +1837,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1561975922}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7189623991592029782, guid: 1767c25e0f45e0b4c813fd6d382b2c53,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2279595487913276824}
     - targetCorrespondingSourceObject: {fileID: 4371168208881215480, guid: 1767c25e0f45e0b4c813fd6d382b2c53,
         type: 3}
       insertIndex: -1
@@ -1878,6 +1882,24 @@ MonoBehaviour:
   m_Spacing: {x: 30, y: 30}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!1 &2279595487913276823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7189623991592029782, guid: 1767c25e0f45e0b4c813fd6d382b2c53,
+    type: 3}
+  m_PrefabInstance: {fileID: 2279595487913276819}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2279595487913276824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2279595487913276823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43ac6a958c53c4846b14a63531f8f1b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitCardUIManager
 --- !u!1 &4949833827327076846 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 40905936015948597, guid: 1767c25e0f45e0b4c813fd6d382b2c53,

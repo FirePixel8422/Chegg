@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using Fire_Pixel.Networking;
 using UnityEngine.UI;
-using Unity.Mathematics;
-using System.Diagnostics;
+
 
 
 public class ResourceManager : MonoBehaviour
