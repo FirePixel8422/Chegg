@@ -13,9 +13,9 @@ public class GridManager : NetworkBehaviour
     [SerializeField] private GridCellFloorAnimator gridTilePrefab;
     [SerializeField] private float tileSize;
 
-    public GridCell[] Grid;
-    public int2 GridSize;
-    public int GridLength;
+    private GridCell[] Grid;
+    private int2 GridSize;
+    private int GridLength;
 
     private GridSettings gridSettings;
     private Vector3 gridBottomLeft;

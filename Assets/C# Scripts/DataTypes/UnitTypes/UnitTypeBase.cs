@@ -24,6 +24,12 @@ public abstract class UnitTypeBase
 
     private void BakeDirectionPatterns(DirectionPattern[] input, out int2[] output)
     {
+        if (input.IsNullOrEmpty())
+        {
+            output = new int2[0];
+            return;
+        }
+
         List<int2> directions = new List<int2>();
         for (int i = 0; i < input.Length; i++)
         {

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 
 
@@ -6,4 +7,11 @@
 public class GlobalUnitTypesListSO : ScriptableObject
 {
     public UnitTypeSO[] Value;
+
+    private void OnValidate()
+    {
+        if (Value.IsNullOrEmpty()) return;
+
+        Array.Sort(Value, (a, b) => string.Compare(a.name, b.name, StringComparison.Ordinal));
+    }
 }

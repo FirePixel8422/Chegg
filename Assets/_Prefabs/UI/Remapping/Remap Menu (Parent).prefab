@@ -340,59 +340,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dev Command 2 Remap (Parent)
       objectReference: {fileID: 0}
-    - target: {fileID: 6474078130293067879, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 55.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 6474078130293067879, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
-        type: 2}
-    - target: {fileID: 6474078130293067879, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: m_fontStyle
-      value: 33
-      objectReference: {fileID: 0}
-    - target: {fileID: 6474078130293067879, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 6973610945942250222, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: m_text
-      value: Dev Command 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6973610945942250222, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 46.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6973610945942250222, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
-        type: 2}
-    - target: {fileID: 6973610945942250222, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: m_fontStyle
-      value: 33
-      objectReference: {fileID: 0}
-    - target: {fileID: 6973610945942250222, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 7254898749666219938, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: actionReference
-      value: 
-      objectReference: {fileID: 2253028099290154456, guid: 6842473d79b50d848a6767cf3412d4c5,
-        type: 3}
     - target: {fileID: 7691359294763128056, guid: 099de6fa9ef83764690f19994043a126,
         type: 3}
       propertyPath: m_Pivot.x
@@ -517,59 +464,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dev Command 1 Remap (Parent)
       objectReference: {fileID: 0}
-    - target: {fileID: 6474078130293067879, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 55.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 6474078130293067879, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
-        type: 2}
-    - target: {fileID: 6474078130293067879, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: m_fontStyle
-      value: 33
-      objectReference: {fileID: 0}
-    - target: {fileID: 6474078130293067879, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 6973610945942250222, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: m_text
-      value: Dev Command 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6973610945942250222, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 46.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6973610945942250222, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
-        type: 2}
-    - target: {fileID: 6973610945942250222, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: m_fontStyle
-      value: 33
-      objectReference: {fileID: 0}
-    - target: {fileID: 6973610945942250222, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 7254898749666219938, guid: 099de6fa9ef83764690f19994043a126,
-        type: 3}
-      propertyPath: actionReference
-      value: 
-      objectReference: {fileID: -1009708068876199411, guid: 6842473d79b50d848a6767cf3412d4c5,
-        type: 3}
     - target: {fileID: 7691359294763128056, guid: 099de6fa9ef83764690f19994043a126,
         type: 3}
       propertyPath: m_Pivot.x

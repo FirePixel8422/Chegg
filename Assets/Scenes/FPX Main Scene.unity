@@ -2361,77 +2361,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c858944c33e79414bada51f976f11551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitTypeTester
-  unitSO: {fileID: 11400000, guid: 7b049e959d576ad438a4f9d68ec2db66, type: 2}
+  unitSO: {fileID: 11400000, guid: e4dcfa8d78ae16d4aaf9f1134c152428, type: 2}
   loadedUnit:
-    rid: 6216775567652421981
+    rid: 6216775600531832957
   references:
     version: 2
     RefIds:
-    - rid: 6216775567652421981
+    - rid: 6216775600531832957
       type: {class: UnitSimple, ns: , asm: Assembly-CSharp}
       data:
         Info:
-          Name: Cat
-          Description: Cheap Unit with chess horse movement
-          Icon: {fileID: 21300000, guid: 932328fb6cd54f749860da5ac6e3e0a8, type: 3}
-          Color: {r: 0.52156866, g: 0.53333336, b: 0.5882353, a: 1}
-        Movement:
-        - Direction:
-            x: 2
-            y: 1
-          MaxSteps: 1
-          MirrorOnAllDirections: 1
-        - Direction:
-            x: 1
-            y: 2
-          MaxSteps: 1
-          MirrorOnAllDirections: 1
-        Attack:
-        - Direction:
-            x: 2
-            y: 1
-          MaxSteps: 1
-          MirrorOnAllDirections: 1
-        - Direction:
-            x: 1
-            y: 2
-          MaxSteps: 1
-          MirrorOnAllDirections: 1
-        MovementDirections:
-        - x: 2
-          y: 1
-        - x: -1
-          y: 2
-        - x: -2
-          y: -1
-        - x: 1
-          y: -2
-        - x: 1
-          y: 2
-        - x: -2
-          y: 1
-        - x: -1
-          y: -2
-        - x: 2
-          y: -1
-        AttackDirections:
-        - x: 2
-          y: 1
-        - x: -1
-          y: 2
-        - x: -2
-          y: -1
-        - x: 1
-          y: -2
-        - x: 1
-          y: 2
-        - x: -2
-          y: 1
-        - x: -1
-          y: -2
-        - x: 2
-          y: -1
-        ManaCost: 2
+          Name: Archer
+          Description: Simple Unit that jumps 2 tiles.
+          Icon: {fileID: 21300000, guid: 1336b5165dea73843ada14baa9ee19e9, type: 3}
+          Color: {r: 0.38431373, g: 0.5372549, b: 0.48235294, a: 1}
+        Movement: []
+        Attack: []
+        MovementDirections: []
+        AttackDirections: []
+        ManaCost: 3
 --- !u!1 &2111965369
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,7 +2489,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.09053126, y: 0.037527777}
-  m_AnchoredPosition: {x: 5, y: 4.999878}
+  m_AnchoredPosition: {x: 5, y: 4.999756}
   m_SizeDelta: {x: -10, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1157690003665227017
