@@ -1,119 +1,48 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using UnityEngine;
 
 
-public static class DeckManager
+
+public class DeckManager : MonoBehaviour
 {
-#pragma warning disable UDR0001
-    private static Dictionary<int, DeckEntry> deckJson;
-
-    public static bool IsFull => currentCardCount == MAX_CARDS_PER_DECK;
-    private static int currentCardCount;
-
-    private const string DECK_SAVE_FILE_PATH = "Decks/New Deck";
-    private const int MAX_CARDS_PER_DECK = 15;
-#pragma warning restore UDR0001
+    private int[] deckPile;
+    private int[] discardPile;
 
 
-    public static void UpdateCard(int unitTypeId, int addedCount)
+
+    private async void Awake()
     {
-        int newUnitCopyCount;
-
-        if (deckJson.TryGetValue(unitTypeId, out DeckEntry entry))
-        {
-            int prevCount = entry.Count;
-            newUnitCopyCount = prevCount + addedCount;
-
-            entry.Count = newUnitCopyCount;
-
-            // Add changed card count to currentCardCount
-            currentCardCount += newUnitCopyCount - prevCount;
-
-            if (newUnitCopyCount == 0)
-            {
-                deckJson.Remove(unitTypeId);
-                UnitCardUIManager.Instance.ToggleDeckUnitUI(unitTypeId, false);
-            }
-            else
-            {
-                deckJson[unitTypeId] = entry;
-            }
-        }
-        else
-        {
-            if (addedCount < 0) return;
-
-            newUnitCopyCount = addedCount;
-
-            deckJson.Add(unitTypeId, new DeckEntry(unitTypeId, addedCount));
-            currentCardCount += addedCount;
-
-            UnitCardUIManager.Instance.ToggleDeckUnitUI(unitTypeId, true);
-        }
-
-        UnitCardUIManager.Instance.UpdateTargetUnitTypeUI(unitTypeId, newUnitCopyCount);
-        _ = SaveDeck_Async();
+        await LoadDeck_Async();
+        deckPile.Shuffle();
     }
 
-    
+
     /// <summary>
-    /// Load potential saved deck savefile into data.
+    /// Load saved deck into deckPile
     /// </summary>
-    public static async Task LoadDeck_Async()
+    private async Task LoadDeck_Async()
     {
-        (bool succes, ArrayWrapper<DeckEntry> data) = await FileManager.LoadInfoAsync<ArrayWrapper<DeckEntry>>(DECK_SAVE_FILE_PATH);
+        (bool succes, ArrayWrapper<DeckEntry> data) = await FileManager.LoadInfoAsync<ArrayWrapper<DeckEntry>>(DeckBuilder.DECK_SAVE_FILE_PATH);
 
         if (succes == false || data.Value.IsNullOrEmpty())
         {
-            deckJson = new Dictionary<int, DeckEntry>();
             return;
         }
 
-        int totalEntries = data.Value.Length;
-        deckJson = new Dictionary<int, DeckEntry>(totalEntries);
-        currentCardCount = 0;
+        int entryCount = data.Value.Length;
 
-        for (int i = 0; i < totalEntries; i++)
+        deckPile = new int[DeckBuilder.MAX_CARDS_PER_DECK];
+        discardPile = new int[DeckBuilder.MAX_CARDS_PER_DECK];
+
+        for (int i = 0; i < DeckBuilder.MAX_CARDS_PER_DECK;)
         {
             int unitTypeId = data[i].Id;
+            int copyCount = data[i].Count;
 
-            deckJson.Add(unitTypeId, data[i]);
-            currentCardCount += data[i].Count;
-
-            UnitCardUIManager.Instance.UpdateTargetUnitTypeUI(unitTypeId, data[i].Count);
-            UnitCardUIManager.Instance.ToggleDeckUnitUI(unitTypeId, true);
+            for (int j = 0; j < copyCount; i++)
+            {
+                deckPile[i] = unitTypeId;
+            }
         }
-    }
-    /// <summary>
-    /// Save deckdata to savefile
-    /// </summary>
-    private static async Task SaveDeck_Async()
-    {
-        int totalEntries = deckJson.Count;
-        if (totalEntries == 0) return;
-
-        ArrayWrapper<DeckEntry> deckEntries = new ArrayWrapper<DeckEntry>(totalEntries);
-
-        int i = 0;
-        foreach (var kvp in deckJson)
-        {
-            deckEntries[i] = kvp.Value;
-            i += 1;
-        }
-
-        await FileManager.SaveInfoAsync(deckEntries, DECK_SAVE_FILE_PATH);
-    }
-}
-
-[System.Serializable]
-public struct DeckEntry
-{
-    public int Id;
-    public int Count;
-
-    public DeckEntry(int id, int count)
-    {
-        Id = id;
-        Count = count;
     }
 }

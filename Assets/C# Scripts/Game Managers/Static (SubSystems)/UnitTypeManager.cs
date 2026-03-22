@@ -9,7 +9,6 @@ public static class UnitTypeManager
     public static UnitTypeBase[] UnitTypes { get; private set; }
 
 
-
     public static void Init(GlobalUnitTypesListSO unitListSO)
     {
         int unitCount = unitListSO.Value.Length;

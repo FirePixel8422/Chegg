@@ -15,7 +15,7 @@ public class UnitCardUIManager : MonoBehaviour
     private int totalCardCount;
 
 
-    private async void Awake()
+    private void Awake()
     {
         Instance = this;
 
@@ -43,8 +43,6 @@ public class UnitCardUIManager : MonoBehaviour
             deckEntry.UpdateCardUI(info, unitTypeId);
             deckEntry.SetActive(false);
         }
-
-        await DeckManager.LoadDeck_Async();
     }
 
     public void UpdateTargetUnitTypeUI(int unitTypeId, int newCount)

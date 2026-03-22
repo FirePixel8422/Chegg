@@ -35,9 +35,9 @@ public class UnitCardUIController : MonoBehaviour
 
     public void UpdateCardCount(int addedCount)
     {
-        if (DeckManager.IsFull && addedCount > 0) return;
+        if (DeckBuilder.IsFull && addedCount > 0) return;
 
-        DeckManager.UpdateCard(unitTypeId, addedCount);
+        DeckBuilder.UpdateCard(unitTypeId, addedCount);
     }
     public void UpdateCardCopiesText(int newCount)
     {
