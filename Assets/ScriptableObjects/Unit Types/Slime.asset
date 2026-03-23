@@ -22,37 +22,46 @@ MonoBehaviour:
       data:
         Info:
           Name: Slime
-          Description: Cheap Unit that with decent movement.
+          Description: Cheap Unit with weak movement
           Icon: {fileID: 21300000, guid: c947b16f7ee9c694a8f93bdeda02f39f, type: 3}
           Color: {r: 0.4, g: 0.6862745, b: 0.42745098, a: 1}
         Movement:
         - Direction:
-            x: 2
+            x: -1
+            y: 1
+          MaxSteps: 1
+          MirrorOnAllDirections: 0
+        - Direction:
+            x: 0
+            y: 1
+          MaxSteps: 1
+          MirrorOnAllDirections: 0
+        - Direction:
+            x: 1
+            y: 1
+          MaxSteps: 1
+          MirrorOnAllDirections: 0
+        Attack:
+        - Direction:
+            x: 1
             y: 0
           MaxSteps: 1
           MirrorOnAllDirections: 1
-        - Direction:
-            x: 2
-            y: 2
-          MaxSteps: 1
-          MirrorOnAllDirections: 1
-        Attack: []
         MovementDirections:
-        - x: 2
+        - x: -1
+          y: 1
+        - x: 0
+          y: 1
+        - x: 1
+          y: 1
+        AttackDirections:
+        - x: 1
           y: 0
         - x: 0
-          y: 2
-        - x: -2
+          y: 1
+        - x: -1
           y: 0
         - x: 0
-          y: -2
-        - x: 2
-          y: 2
-        - x: -2
-          y: 2
-        - x: -2
-          y: -2
-        - x: 2
-          y: -2
-        AttackDirections: []
+          y: -1
+        MoveToAttackedTile: 0
         ManaCost: 1

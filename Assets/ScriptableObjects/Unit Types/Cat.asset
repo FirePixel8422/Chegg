@@ -38,13 +38,8 @@ MonoBehaviour:
           MirrorOnAllDirections: 1
         Attack:
         - Direction:
-            x: 2
-            y: 1
-          MaxSteps: 1
-          MirrorOnAllDirections: 1
-        - Direction:
             x: 1
-            y: 2
+            y: 1
           MaxSteps: 1
           MirrorOnAllDirections: 1
         MovementDirections:
@@ -65,20 +60,15 @@ MonoBehaviour:
         - x: 2
           y: -1
         AttackDirections:
-        - x: 2
+        - x: 1
           y: 1
         - x: -1
-          y: 2
-        - x: -2
-          y: -1
-        - x: 1
-          y: -2
-        - x: 1
-          y: 2
-        - x: -2
           y: 1
         - x: -1
-          y: -2
-        - x: 2
           y: -1
+        - x: 1
+          y: -1
+        HasPierce: 0
+        HasDash: 0
+        HasThorns: 0
         ManaCost: 2

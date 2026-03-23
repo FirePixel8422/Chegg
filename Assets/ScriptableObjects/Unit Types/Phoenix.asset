@@ -22,21 +22,31 @@ MonoBehaviour:
       data:
         Info:
           Name: Phoenix
-          Description: Expensive Unit with strong movement
+          Description: Expensive Unit with full directional movement and attack
           Icon: {fileID: 21300000, guid: b0981228e552a8d4bac952c8dddd2d99, type: 3}
           Color: {r: 0.8862745, g: 0.3137255, b: 0.2784314, a: 1}
         Movement:
         - Direction:
             x: 1
             y: 0
-          MaxSteps: 2
+          MaxSteps: 1
           MirrorOnAllDirections: 1
         - Direction:
             x: 1
             y: 1
-          MaxSteps: 2
+          MaxSteps: 1
           MirrorOnAllDirections: 1
-        Attack: []
+        Attack:
+        - Direction:
+            x: 1
+            y: 0
+          MaxSteps: 1
+          MirrorOnAllDirections: 1
+        - Direction:
+            x: 1
+            y: 1
+          MaxSteps: 1
+          MirrorOnAllDirections: 1
         MovementDirections:
         - x: 1
           y: 0
@@ -46,14 +56,6 @@ MonoBehaviour:
           y: 0
         - x: 0
           y: -1
-        - x: 2
-          y: 0
-        - x: 0
-          y: 2
-        - x: -2
-          y: 0
-        - x: 0
-          y: -2
         - x: 1
           y: 1
         - x: -1
@@ -62,13 +64,22 @@ MonoBehaviour:
           y: -1
         - x: 1
           y: -1
-        - x: 2
-          y: 2
-        - x: -2
-          y: 2
-        - x: -2
-          y: -2
-        - x: 2
-          y: -2
-        AttackDirections: []
+        AttackDirections:
+        - x: 1
+          y: 0
+        - x: 0
+          y: 1
+        - x: -1
+          y: 0
+        - x: 0
+          y: -1
+        - x: 1
+          y: 1
+        - x: -1
+          y: 1
+        - x: -1
+          y: -1
+        - x: 1
+          y: -1
+        MoveToAttackedTile: 0
         ManaCost: 3

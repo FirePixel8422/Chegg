@@ -22,11 +22,46 @@ MonoBehaviour:
       data:
         Info:
           Name: Archer
-          Description: Simple Unit that jumps 2 tiles.
+          Description: Ranged unit with simple movement
           Icon: {fileID: 21300000, guid: 1336b5165dea73843ada14baa9ee19e9, type: 3}
           Color: {r: 0.38431373, g: 0.5372549, b: 0.48235294, a: 1}
-        Movement: []
-        Attack: []
-        MovementDirections: []
-        AttackDirections: []
+        Movement:
+        - Direction:
+            x: 1
+            y: 0
+          MaxSteps: 1
+          MirrorOnAllDirections: 1
+        Attack:
+        - Direction:
+            x: 1
+            y: 1
+          MaxSteps: 2
+          MirrorOnAllDirections: 1
+        MovementDirections:
+        - x: 1
+          y: 0
+        - x: 0
+          y: 1
+        - x: -1
+          y: 0
+        - x: 0
+          y: -1
+        AttackDirections:
+        - x: 1
+          y: 1
+        - x: -1
+          y: 1
+        - x: -1
+          y: -1
+        - x: 1
+          y: -1
+        - x: 2
+          y: 2
+        - x: -2
+          y: 2
+        - x: -2
+          y: -2
+        - x: 2
+          y: -2
+        MoveToAttackedTile: 0
         ManaCost: 3

@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using UnityEditor;
 using UnityEngine;
 
 public class UnitTypeTester : MonoBehaviour
@@ -17,10 +18,12 @@ public class UnitTypeTester : MonoBehaviour
         loadedUnit.BakeMovementDirections();
         loadedUnit.BakeAttackDirections();
 
+        EditorUtility.SetDirty(unitSO);
+
         Gizmos.color = Color.white;
         Gizmos.DrawCube(Vector3.zero, Vector3.one * 0.75f);
 
-        Gizmos.color = new Color(0, 0, 1, 1);
+        Gizmos.color = new Color(0, 1, 0, 1);
         for (int i = 0; i < unitSO.Value.MovementDirections.Length; i++)
         {
             Vector3 worldPos = new Vector3(unitSO.Value.MovementDirections[i].x, 0, unitSO.Value.MovementDirections[i].y);
