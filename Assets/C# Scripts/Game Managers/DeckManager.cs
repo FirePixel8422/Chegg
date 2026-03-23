@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DeckManager : MonoBehaviour
 {
-    private int[] deckPile;
+    [SerializeField] private int[] deckPile;
     private int[] discardPile;
 
 
@@ -34,14 +34,16 @@ public class DeckManager : MonoBehaviour
         deckPile = new int[DeckBuilder.MAX_CARDS_PER_DECK];
         discardPile = new int[DeckBuilder.MAX_CARDS_PER_DECK];
 
-        for (int i = 0; i < DeckBuilder.MAX_CARDS_PER_DECK;)
+        int deckPileId = 0;
+        for (int i = 0; i < entryCount; i++)
         {
             int unitTypeId = data[i].Id;
             int copyCount = data[i].Count;
 
-            for (int j = 0; j < copyCount; i++)
+            for (int j = 0; j < copyCount; j++)
             {
-                deckPile[i] = unitTypeId;
+                deckPile[deckPileId] = unitTypeId;
+                deckPileId += 1;
             }
         }
     }

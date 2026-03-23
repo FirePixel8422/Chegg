@@ -22,8 +22,6 @@ public static class DeckBuilder
     {
         deckEntryDict = new Dictionary<int, DeckEntry>();
         currentCardCount = 0;
-
-        _ = LoadDeck_Async();
     }
 
     public static void UpdateCard(int unitTypeId, int addedCount)
@@ -101,7 +99,11 @@ public static class DeckBuilder
     private static async Task SaveDeck_Async()
     {
         int totalEntries = deckEntryDict.Count;
-        if (totalEntries == 0) return;
+        if (totalEntries == 0)
+        {
+            FileManager.TryDeleteFile(DECK_SAVE_FILE_PATH);
+            return;
+        }
 
         ArrayWrapper<DeckEntry> deckEntries = new ArrayWrapper<DeckEntry>(totalEntries);
 

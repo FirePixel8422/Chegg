@@ -14,7 +14,7 @@ namespace Fire_Pixel.Networking
         private AsyncOperation mainSceneLoadOperation;
 
 
-        private async void Awake()
+        private void Start()
         {
             loginSceneName = SceneManager.CurrentSceneName;
             mainSceneLoadOperation = SceneManager.LoadSceneAsync(mainSceneName, LoadSceneMode.Additive, false);
@@ -24,11 +24,11 @@ namespace Fire_Pixel.Networking
                 SceneManager.UnLoadSceneAsync(loginSceneName);
             };
 
-            await UnityServices.InitializeAsync();
+            _ = UnityServices.InitializeAsync();
 
             //AuthenticationService.Instance.SignOut();
 
-            await AuthenticationService.Instance.SignInAnonymouslyAsync();
+            _ = AuthenticationService.Instance.SignInAnonymouslyAsync();
 
             //DebugLogger.Log("Logged into saved account!");
             //Debug.Log("Player ID: " + AuthenticationService.Instance.PlayerId);

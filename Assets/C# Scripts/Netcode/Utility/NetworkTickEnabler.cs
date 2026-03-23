@@ -8,6 +8,5 @@ public class NetworkTickEnabler : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         CallbackScheduler.EnableNetworkTickEvents();
-        Destroy(this);
     }
 }

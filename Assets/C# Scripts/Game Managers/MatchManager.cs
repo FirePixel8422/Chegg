@@ -1,4 +1,3 @@
-using Fire_Pixel.Utility;
 using UnityEngine;
 using Unity.Netcode;
 

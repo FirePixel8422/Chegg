@@ -56,6 +56,10 @@ public abstract class UnitTypeBase
     public int2[] MovementDirections;
     public int2[] AttackDirections;
 
+    public bool HasPierce;
+    public bool HasDash;
+    public bool HasThorns;
+
     [Range(0, 10)]
     public int ManaCost = 1;
 }

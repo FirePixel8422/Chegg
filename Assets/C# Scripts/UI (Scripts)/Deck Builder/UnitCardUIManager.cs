@@ -43,6 +43,8 @@ public class UnitCardUIManager : MonoBehaviour
             deckEntry.UpdateCardUI(info, unitTypeId);
             deckEntry.SetActive(false);
         }
+
+        _ = DeckBuilder.LoadDeck_Async();
     }
 
     public void UpdateTargetUnitTypeUI(int unitTypeId, int newCount)

@@ -1083,6 +1083,65 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &1048435187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1048435188}
+  - component: {fileID: 1048435189}
+  m_Layer: 5
+  m_Name: Player Hand (Parent)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1048435188
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048435187}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9182157788163061242}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 250}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1048435189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048435187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b513d75931b809478e7bec2f1347278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HandLayout
+  handCardPrefab: {fileID: 0}
+  maxHandWidth: 1200
+  baseSpacing: 220
+  arcHeight: 140
+  maxRotation: 18
+  hoverLift: 75
+  hoverSpacingPush: 75
+  hoverScale: 1.25
+  moveSpeed: 14
+  rotateSpeed: 16
+  scaleSpeed: 16
 --- !u!1 &1065594743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,20 +1393,43 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5175170958893108009, guid: fbc1086cad5ca4547801b01a34f9f7a3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1469188035}
   m_SourcePrefab: {fileID: 100100000, guid: fbc1086cad5ca4547801b01a34f9f7a3, type: 3}
+--- !u!1 &1469188032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5175170958893108009, guid: fbc1086cad5ca4547801b01a34f9f7a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1469188031}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1469188034 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4632173753953904272, guid: fbc1086cad5ca4547801b01a34f9f7a3,
     type: 3}
   m_PrefabInstance: {fileID: 1469188031}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1469188032}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91a1fa07f73e0c042ad708022afa479c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TurnManager
+--- !u!114 &1469188035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469188032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d0d9a7bbe58d954aab341e991bbc0ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeckManager
+  deckPile: 
 --- !u!1 &1474740119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1851,25 +1933,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c858944c33e79414bada51f976f11551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitTypeTester
-  unitSO: {fileID: 11400000, guid: e4dcfa8d78ae16d4aaf9f1134c152428, type: 2}
+  unitSO: {fileID: 11400000, guid: 7b049e959d576ad438a4f9d68ec2db66, type: 2}
   loadedUnit:
-    rid: 6216775600531832957
+    rid: 902968967661355145
   references:
     version: 2
     RefIds:
-    - rid: 6216775600531832957
+    - rid: 902968967661355145
       type: {class: UnitSimple, ns: , asm: Assembly-CSharp}
       data:
         Info:
-          Name: Archer
-          Description: Simple Unit that jumps 2 tiles.
-          Icon: {fileID: 21300000, guid: 1336b5165dea73843ada14baa9ee19e9, type: 3}
-          Color: {r: 0.38431373, g: 0.5372549, b: 0.48235294, a: 1}
-        Movement: []
-        Attack: []
-        MovementDirections: []
-        AttackDirections: []
-        ManaCost: 3
+          Name: Cat
+          Description: Cheap Unit with chess horse movement
+          Icon: {fileID: 21300000, guid: 932328fb6cd54f749860da5ac6e3e0a8, type: 3}
+          Color: {r: 0.52156866, g: 0.53333336, b: 0.5882353, a: 1}
+        Movement:
+        - Direction:
+            x: 2
+            y: 1
+          MaxSteps: 1
+          MirrorOnAllDirections: 1
+        - Direction:
+            x: 1
+            y: 2
+          MaxSteps: 1
+          MirrorOnAllDirections: 1
+        Attack:
+        - Direction:
+            x: 1
+            y: 1
+          MaxSteps: 1
+          MirrorOnAllDirections: 1
+        MovementDirections:
+        - x: 2
+          y: 1
+        - x: -1
+          y: 2
+        - x: -2
+          y: -1
+        - x: 1
+          y: -2
+        - x: 1
+          y: 2
+        - x: -2
+          y: 1
+        - x: -1
+          y: -2
+        - x: 2
+          y: -1
+        AttackDirections:
+        - x: 1
+          y: 1
+        - x: -1
+          y: 1
+        - x: -1
+          y: -1
+        - x: 1
+          y: -1
+        HasPierce: 0
+        HasDash: 0
+        HasThorns: 0
+        ManaCost: 2
 --- !u!1 &2111965369
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,7 +2215,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.5
+  m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -2252,6 +2376,7 @@ RectTransform:
   - {fileID: 693212071741026775}
   - {fileID: 446516754}
   - {fileID: 644745517}
+  - {fileID: 1048435188}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

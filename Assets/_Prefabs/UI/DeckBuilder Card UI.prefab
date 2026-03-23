@@ -714,7 +714,7 @@ GameObject:
   - component: {fileID: 3031449708557962796}
   - component: {fileID: 5769241310026317412}
   m_Layer: 5
-  m_Name: Unit Card UI (Parent)
+  m_Name: DeckBuilder Card UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
