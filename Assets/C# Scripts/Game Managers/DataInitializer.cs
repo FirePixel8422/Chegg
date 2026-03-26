@@ -10,7 +10,6 @@ public class DataInitializer : MonoBehaviour
     [SerializeField] private GlobalUnitTypesListSO globalUnitListSO;
 
 
-
     private void Awake()
     {
         UnitTypeManager.Init(globalUnitListSO);

@@ -11,12 +11,12 @@ public static class UnitTypeManager
 
     public static void Init(GlobalUnitTypesListSO unitListSO)
     {
-        int unitCount = unitListSO.Value.Length;
+        int unitCount = unitListSO.List.Length;
         UnitTypes = new UnitTypeBase[unitCount];
 
         for (int i = 0; i < unitCount; i++)
         {
-            UnitTypes[i] = unitListSO.Value[i].Value;
+            UnitTypes[i] = unitListSO.List[i].Value;
             UnitTypes[i].SetId(i);
         }
     }

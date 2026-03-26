@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85734ce96c604a948b29eb1e663719a9, type: 3}
   m_Name: _Global Unit List
   m_EditorClassIdentifier: Assembly-CSharp::GlobalUnitTypesListSO
-  Value:
+  List:
   - {fileID: 11400000, guid: e4dcfa8d78ae16d4aaf9f1134c152428, type: 2}
   - {fileID: 11400000, guid: 7b049e959d576ad438a4f9d68ec2db66, type: 2}
   - {fileID: 11400000, guid: 4d4cfd413d36f2244b00e7801f1189a7, type: 2}

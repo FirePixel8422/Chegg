@@ -2,8 +2,6 @@
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-
-
 public class GridRaycaster : MonoBehaviour
 {
     [SerializeField] private InputActionReference onClickAction;
@@ -11,15 +9,28 @@ public class GridRaycaster : MonoBehaviour
 
     public GridCell selectedGridCell;
 
+    private bool processClick;
+
     private void Awake()
     {
         onClickAction.action.performed += OnClick;
         onClickAction.action.Enable();
     }
+
     public void OnClick(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed == false) 
+        if (ctx.performed == false)
             return;
+
+        processClick = true;
+    }
+
+    private void Update()
+    {
+        if (processClick == false)
+            return;
+
+        processClick = false;
 
         if (EventSystem.current.IsPointerOverGameObject())
             return;
@@ -32,7 +43,7 @@ public class GridRaycaster : MonoBehaviour
         if (!Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, gridMask))
             return;
 
-        if (!GridManager.Instance.TryGetGridCellFromWorldPoint(hit.point, out GridCell newGridCell)) 
+        if (!GridManager.Instance.TryGetGridCellFromWorldPoint(hit.point, out GridCell newGridCell))
             return;
 
         if (newGridCell.GridId == prevCelGridId)
@@ -46,6 +57,7 @@ public class GridRaycaster : MonoBehaviour
 
         }
     }
+
     private void ResetSelectedGridCell()
     {
         if (selectedGridCell.GridFloorTrans != null)
@@ -54,8 +66,6 @@ public class GridRaycaster : MonoBehaviour
             selectedGridCell = default;
         }
     }
-
-
 
     private void OnDestroy()
     {
