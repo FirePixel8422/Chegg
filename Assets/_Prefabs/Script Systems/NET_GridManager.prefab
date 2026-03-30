@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 105852459395293618}
   - component: {fileID: 4988118311796134496}
   - component: {fileID: 7602424956517537668}
-  m_Layer: 0
+  - component: {fileID: 6655089273292793594}
+  m_Layer: 6
   m_Name: NET_GridManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,11 +77,8 @@ MonoBehaviour:
   gridTilePrefab: {fileID: 6636356537901864644, guid: f1ab90cc2bbea2f459f0d3c126a9f864,
     type: 3}
   tileSize: 2.5
+  tileHeight: 0.5
   Grid: []
-  GridSize:
-    x: 0
-    y: 0
-  GridLength: 0
 --- !u!114 &7602424956517537668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,5 +96,24 @@ MonoBehaviour:
   gridMask:
     serializedVersion: 2
     m_Bits: 64
-  selectedGridCell:
-    GridFloorTrans: {fileID: 0}
+--- !u!65 &6655089273292793594
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516709309630001950}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

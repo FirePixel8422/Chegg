@@ -1,5 +1,6 @@
 using Fire_Pixel.Utility;
 using System.Runtime.InteropServices;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -44,6 +45,8 @@ namespace Fire_Pixel.Networking
                 img.enabled = true;
                 CallbackScheduler.RegisterUpdate(OnUpdateNonOwner);
             }
+
+            NetworkManager.Singleton.OnPreShutdown += OnNetworkStop;
         }
 
         private void ApplyWindowsCursorScale()
@@ -81,6 +84,11 @@ namespace Fire_Pixel.Networking
             targetRecievedPosition = finalMousePos + hotspot;
         }
 
+        private void OnNetworkStop()
+        {
+            CallbackScheduler.UnRegisterUpdate(OnUpdateOwner);
+            CallbackScheduler.UnRegisterUpdate(OnUpdateNonOwner);
+        }
         private void OnDestroy()
         {
             CallbackScheduler.UnRegisterUpdate(OnUpdateOwner);

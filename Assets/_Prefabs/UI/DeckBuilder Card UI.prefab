@@ -183,8 +183,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5769241310026317412}
-        m_TargetAssemblyTypeName: UnitCardUIController, Assembly-CSharp
+      - m_Target: {fileID: -5341880745409761577}
+        m_TargetAssemblyTypeName: DeckBuilderUnitCardUI, Assembly-CSharp
         m_MethodName: UpdateCardCount
         m_Mode: 3
         m_Arguments:
@@ -712,7 +712,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3031449708557962796}
-  - component: {fileID: 5769241310026317412}
+  - component: {fileID: -5341880745409761577}
   m_Layer: 5
   m_Name: DeckBuilder Card UI
   m_TagString: Untagged
@@ -744,7 +744,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 325}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5769241310026317412
+--- !u!114 &-5341880745409761577
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -753,9 +753,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6513632730081086838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22c96833b041dcb4c8da421b2c8975c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e0a297e6f1512145abf680d6f65ef10, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UnitCardUIController
+  m_EditorClassIdentifier: Assembly-CSharp::DeckBuilderUnitCardUI
   titleText: {fileID: 1262268044469773880}
   descriptionText: {fileID: 4281813110979930255}
   icon: {fileID: 6872451285450226100}
@@ -943,8 +943,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5769241310026317412}
-        m_TargetAssemblyTypeName: UnitCardUIController, Assembly-CSharp
+      - m_Target: {fileID: -5341880745409761577}
+        m_TargetAssemblyTypeName: DeckBuilderUnitCardUI, Assembly-CSharp
         m_MethodName: UpdateCardCount
         m_Mode: 3
         m_Arguments:

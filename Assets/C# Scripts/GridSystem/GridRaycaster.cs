@@ -2,14 +2,17 @@
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
+
 public class GridRaycaster : MonoBehaviour
 {
     [SerializeField] private InputActionReference onClickAction;
     [SerializeField] private LayerMask gridMask;
 
-    public GridCell selectedGridCell;
+    private GridCell hoveredGridCell = GridCell.Null;
+    private GridCell selectedGridCell = GridCell.Null;
 
-    private bool processClick;
+    private bool clickInputBuffered;
+
 
     private void Awake()
     {
@@ -22,21 +25,38 @@ public class GridRaycaster : MonoBehaviour
         if (ctx.performed == false)
             return;
 
-        processClick = true;
+        clickInputBuffered = true;
     }
 
     private void Update()
     {
-        if (processClick == false)
+        bool isMouseOverUI = EventSystem.current.IsPointerOverGameObject();
+
+        UpdateHoveredGridCell(isMouseOverUI);
+
+        if (!clickInputBuffered)
             return;
 
-        processClick = false;
+        TrySelectGridCell(isMouseOverUI);
+        clickInputBuffered = false;
+    }
 
-        if (EventSystem.current.IsPointerOverGameObject())
+
+    #region GriCell Hover/Select Logic
+
+    /// <summary>
+    /// Try Get GridCell nder mouse and lose previous <see cref="hoveredGridCell"/>. Also mark their attached animation scripts as Hovered/Unhovered
+    /// </summary>
+    private void UpdateHoveredGridCell(bool isMouseOverUI)
+    {
+        if (hoveredGridCell.IsValid)
+        {
+            hoveredGridCell.AnimatorObject.IsMouseOver = false;
+            hoveredGridCell = GridCell.Null;
+        }
+
+        if (isMouseOverUI)
             return;
-
-        int prevCelGridId = selectedGridCell.GridId;
-        ResetSelectedGridCell();
 
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.value);
 
@@ -46,26 +66,39 @@ public class GridRaycaster : MonoBehaviour
         if (!GridManager.Instance.TryGetGridCellFromWorldPoint(hit.point, out GridCell newGridCell))
             return;
 
-        if (newGridCell.GridId == prevCelGridId)
+        hoveredGridCell = newGridCell;
+        hoveredGridCell.AnimatorObject.IsMouseOver = true;
+    }
+
+    /// <summary>
+    /// Try Select <see cref="hoveredGridCell"/> and deselect the previously selected cell. Also mark their attached anomations scripts as Selected/Unselected
+    /// </summary>
+    private void TrySelectGridCell(bool isMouseOverUI)
+    {
+        if (isMouseOverUI)
             return;
 
-        selectedGridCell = newGridCell;
-        selectedGridCell.GridFloorTrans.IsSelected = true;
+        int currentGridCellId = selectedGridCell.Id;
+        if (selectedGridCell.IsValid)
+        {
+            selectedGridCell.AnimatorObject.IsSelected = false;
+            selectedGridCell = GridCell.Null;
+        }
 
-        if (selectedGridCell.GridEntry != null)
+        if (hoveredGridCell.IsValid == false || hoveredGridCell.Id == currentGridCellId)
+            return;
+
+        selectedGridCell = hoveredGridCell;
+        selectedGridCell.AnimatorObject.IsSelected = true;
+
+        if (selectedGridCell.Entry != null)
         {
 
         }
     }
 
-    private void ResetSelectedGridCell()
-    {
-        if (selectedGridCell.GridFloorTrans != null)
-        {
-            selectedGridCell.GridFloorTrans.IsSelected = false;
-            selectedGridCell = default;
-        }
-    }
+    #endregion
+
 
     private void OnDestroy()
     {

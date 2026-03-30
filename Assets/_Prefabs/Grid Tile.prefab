@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7437978612186360097}
   - component: {fileID: 754586549693863992}
   - component: {fileID: 2435721550855755233}
-  - component: {fileID: 4508829857664536751}
   - component: {fileID: 6636356537901864644}
   m_Layer: 6
   m_Name: Grid Tile
@@ -92,27 +91,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4508829857664536751
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2151215478384597812}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6636356537901864644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,3 +105,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GridCellFloorAnimator
   animateHeight: 0.25
   animateSpeed: 2
+  IsSelected: 0
+  IsMouseOver: 0

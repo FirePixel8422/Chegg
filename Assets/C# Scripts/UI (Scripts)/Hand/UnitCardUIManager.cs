@@ -9,9 +9,9 @@ public class UnitCardUIManager : MonoBehaviour
     [SerializeField] private Transform cardListHolder;
     [SerializeField] private Transform deckListHolder;
 
-    [SerializeField] private UnitCardUIController deckListEntryPrefab;
+    [SerializeField] private DeckBuilderUnitCardUI deckListEntryPrefab;
 
-    private UnitCardUIController[] cardListUI, deckListUI;
+    private DeckBuilderUnitCardUI[] cardListUI, deckListUI;
     private int totalCardCount;
 
 
@@ -21,8 +21,8 @@ public class UnitCardUIManager : MonoBehaviour
 
         totalCardCount = UnitTypeManager.UnitTypes.Length;
 
-        cardListUI = new UnitCardUIController[totalCardCount];
-        deckListUI = new UnitCardUIController[totalCardCount];
+        cardListUI = new DeckBuilderUnitCardUI[totalCardCount];
+        deckListUI = new DeckBuilderUnitCardUI[totalCardCount];
 
         // Setup Card UI and data
         for (int i = 0; i < totalCardCount; i++)
@@ -30,10 +30,10 @@ public class UnitCardUIManager : MonoBehaviour
             UnitInfo info = UnitTypeManager.UnitTypes[i].Info;
             int unitTypeId = UnitTypeManager.UnitTypes[i].Id;
 
-            UnitCardUIController listEntry = Instantiate(deckListEntryPrefab, cardListHolder);
+            DeckBuilderUnitCardUI listEntry = Instantiate(deckListEntryPrefab, cardListHolder);
             cardListUI[i] = listEntry;
 
-            UnitCardUIController deckEntry = Instantiate(deckListEntryPrefab, deckListHolder);
+            DeckBuilderUnitCardUI deckEntry = Instantiate(deckListEntryPrefab, deckListHolder);
             deckListUI[i] = deckEntry;
 
             listEntry.Init();
@@ -41,7 +41,7 @@ public class UnitCardUIManager : MonoBehaviour
 
             deckEntry.Init();
             deckEntry.UpdateCardUI(info, unitTypeId);
-            deckEntry.SetActive(false);
+            deckEntry.gameObject.SetActive(false);
         }
 
         _ = DeckBuilder.LoadDeck_Async();
@@ -54,6 +54,6 @@ public class UnitCardUIManager : MonoBehaviour
     }
     public void ToggleDeckUnitUI(int unitTypeId, bool state)
     {
-        deckListUI[unitTypeId].SetActive(state);
+        deckListUI[unitTypeId].gameObject.SetActive(state);
     }
 }

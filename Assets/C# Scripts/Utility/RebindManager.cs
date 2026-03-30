@@ -43,10 +43,12 @@ public class RebindManager : MonoBehaviour
         cancelRebindAction.action.Disable();
     }
 
-    private void Awake()
+    private async void Awake()
     {
         Instance = this;
-        _ = LoadRebindsAsync();
+
+        await LoadRebindsAsync();
+        PostRebindsLoaded?.Invoke();
     }
 
     private void OnCancelRebind(InputAction.CallbackContext ctx)
@@ -141,6 +143,8 @@ public class RebindManager : MonoBehaviour
     {
         (bool success, ValueWrapper<string> rebindJson) = await FileManager.LoadInfoAsync<ValueWrapper<string>>(REBINDS_PATH);
 
+        await Task.Yield();
+
         if (success && !string.IsNullOrEmpty(rebindJson.Value))
         {
             inputActions.LoadBindingOverridesFromJson(rebindJson.Value);
@@ -148,7 +152,6 @@ public class RebindManager : MonoBehaviour
             DebugLogger.Log("Rebinds loaded.", logRebindOperations);
 #endif
         }
-        PostRebindsLoaded?.Invoke();
     }
     private async Task SaveRebindsAsync()
     {

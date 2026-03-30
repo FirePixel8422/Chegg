@@ -7,12 +7,11 @@ public class GridManager : NetworkBehaviour
 {
     public static GridManager Instance { get; private set; }
 
-
     [SerializeField] private GridSettingsSO gridSettingsSO;
     [SerializeField] private GridCellFloorAnimator gridTilePrefab;
-    [SerializeField] private float tileSize;
+    [SerializeField] private float tileSize, tileHeight;
 
-    private GridCell[] Grid;
+    [SerializeField] private GridCell[] Grid;
     private int2 GridSize;
     private int GridLength;
 
@@ -32,6 +31,9 @@ public class GridManager : NetworkBehaviour
         GenerateGrid_RPC(gridSettings);
     }
 
+    /// <summary>
+    /// Generate a grid on all clients with the same settings to ensure everyone sees the same grid.
+    /// </summary>
     [Rpc(SendTo.ClientsAndHost)]
     private void GenerateGrid_RPC(GridSettings settings)
     {
@@ -46,14 +48,21 @@ public class GridManager : NetworkBehaviour
             {
                 Vector3 worldPos = gridBottomLeft + new Vector3(x * tileSize, 0, z * tileSize) + new Vector3(tileSize * 0.5f, 0, tileSize * 0.5f);
 
-                GridCellFloorAnimator gridFloorTransform = Instantiate(gridTilePrefab, worldPos, Quaternion.identity);
+                GridCellFloorAnimator gridFloorTransform = Instantiate(gridTilePrefab, worldPos, Quaternion.identity, transform);
 
                 int gridId = x + z * settings.Width;
                 Grid[gridId] = new GridCell(gridId, worldPos, gridFloorTransform);
             }
         }
+
+        GetComponent<BoxCollider>().size = new Vector3(settings.Width * tileSize, tileHeight, settings.Height * tileSize);
     }
 
+
+    /// <summary>
+    /// Try get GridCell from the grid with 3d <paramref name="worldPos"/>
+    /// </summary>
+    /// <returns>True if any cell was found</returns>
     public bool TryGetGridCellFromWorldPoint(Vector3 worldPos, out GridCell gridCell)
     {
         Vector3 localPos = worldPos - gridBottomLeft;

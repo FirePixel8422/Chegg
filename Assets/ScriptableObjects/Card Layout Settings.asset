@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c239ee7535c2ca46b43bf4c3e6e15d7, type: 3}
+  m_Name: Card Layout Settings
+  m_EditorClassIdentifier: Assembly-CSharp::CardLayoutSettingsSO
+  Value:
+    HandCardPrefab: {fileID: 3031449708557962796, guid: 0f3c03a6c79d8d5479382afc26bee300,
+      type: 3}
+    MaxHandWidth: 1200
+    BaseSpacing: 220
+    ArcHeight: 140
+    MaxRotation: 18
+    HoverLift: 75
+    HoverSpacingPush: 75
+    HoverScale: 1.25
+    MoveSpeed: 14
+    RotateSpeed: 16
+    ScaleSpeed: 16
