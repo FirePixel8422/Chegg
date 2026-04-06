@@ -2,7 +2,8 @@ using TMPro;
 using UnityEngine;
 
 
-public class DeckBuilderUnitCardUI : UnitCardUI
+[RequireComponent(typeof(UIClickHandler))]
+public class DeckUnitCardUI : UnitCardUI
 {
     [SerializeField] private TextMeshProUGUI cardCopiesText;
 

@@ -9,9 +9,9 @@ public class UnitCardUIManager : MonoBehaviour
     [SerializeField] private Transform cardListHolder;
     [SerializeField] private Transform deckListHolder;
 
-    [SerializeField] private DeckBuilderUnitCardUI deckListEntryPrefab;
+    [SerializeField] private DeckUnitCardUI deckListEntryPrefab;
 
-    private DeckBuilderUnitCardUI[] cardListUI, deckListUI;
+    private DeckUnitCardUI[] cardListUI, deckListUI;
     private int totalCardCount;
 
 
@@ -21,8 +21,8 @@ public class UnitCardUIManager : MonoBehaviour
 
         totalCardCount = UnitTypeManager.UnitTypes.Length;
 
-        cardListUI = new DeckBuilderUnitCardUI[totalCardCount];
-        deckListUI = new DeckBuilderUnitCardUI[totalCardCount];
+        cardListUI = new DeckUnitCardUI[totalCardCount];
+        deckListUI = new DeckUnitCardUI[totalCardCount];
 
         // Setup Card UI and data
         for (int i = 0; i < totalCardCount; i++)
@@ -30,10 +30,10 @@ public class UnitCardUIManager : MonoBehaviour
             UnitInfo info = UnitTypeManager.UnitTypes[i].Info;
             int unitTypeId = UnitTypeManager.UnitTypes[i].Id;
 
-            DeckBuilderUnitCardUI listEntry = Instantiate(deckListEntryPrefab, cardListHolder);
+            DeckUnitCardUI listEntry = Instantiate(deckListEntryPrefab, cardListHolder);
             cardListUI[i] = listEntry;
 
-            DeckBuilderUnitCardUI deckEntry = Instantiate(deckListEntryPrefab, deckListHolder);
+            DeckUnitCardUI deckEntry = Instantiate(deckListEntryPrefab, deckListHolder);
             deckListUI[i] = deckEntry;
 
             listEntry.Init();

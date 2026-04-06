@@ -234,7 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9114835816695071796}
   m_Layer: 5
-  m_Name: Deck Builder Menu (Parent)
+  m_Name: Deck Menu (Parent)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1363,7 +1363,7 @@ GameObject:
   - component: {fileID: 4019100414337014518}
   - component: {fileID: 6342897521189756514}
   - component: {fileID: 5619062742448992112}
-  - component: {fileID: 6336305767477728527}
+  - component: {fileID: 7264052558847411011}
   m_Layer: 5
   m_Name: Back Button (Parent)
   m_TagString: Untagged
@@ -1519,7 +1519,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6336305767477728527
+--- !u!114 &7264052558847411011
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1528,9 +1528,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6847299180165632424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad8a97650fa571548aa48afdd87618f0, type: 3}
+  m_Script: {fileID: 11500000, guid: ebf59f08c909828418b582e5b58ceeca, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MenuController
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonInputTrigger
   triggerInput: {fileID: 8639254785988848120, guid: 6842473d79b50d848a6767cf3412d4c5,
     type: 3}
 --- !u!1 &7031576051268024931

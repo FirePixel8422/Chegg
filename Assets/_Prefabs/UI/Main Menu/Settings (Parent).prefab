@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2426051140216971815}
   - component: {fileID: 3237113321529207077}
   - component: {fileID: 4772004366883767178}
-  - component: {fileID: 781151810269004496}
+  - component: {fileID: 31804299988872616}
   m_Layer: 5
   m_Name: Back Button (Parent)
   m_TagString: Untagged
@@ -169,7 +169,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &781151810269004496
+--- !u!114 &31804299988872616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,9 +178,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 343808271894141677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad8a97650fa571548aa48afdd87618f0, type: 3}
+  m_Script: {fileID: 11500000, guid: ebf59f08c909828418b582e5b58ceeca, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MenuController
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonInputTrigger
   triggerInput: {fileID: 8639254785988848120, guid: 6842473d79b50d848a6767cf3412d4c5,
     type: 3}
 --- !u!1 &394064928308300668
